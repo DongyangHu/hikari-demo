@@ -29,7 +29,6 @@ public class DataSourceAspect {
     public void before(JoinPoint point, ChooseDataSource chooseDataSource) {
         DataSourceEnum value = chooseDataSource.value();
         DynamicDataSourceHolder.put(value.name());
-        log.error("before dataSource:{}, joinPoint:{}", chooseDataSource.value(), point);
     }
 
     @After("pointcut() && @annotation(chooseDataSource)")
